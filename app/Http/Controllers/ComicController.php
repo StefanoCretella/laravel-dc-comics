@@ -7,59 +7,41 @@ use Illuminate\Http\Request;
 
 class ComicController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $comics = Comic::all();
+        return view('comics.index', compact('comics'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
     public function show(Comic $comic)
     {
-        //
+        return view('comics.show', compact('comic'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Comic $comic)
+    public function create()
     {
-        //
+        return view('comics.create');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Comic $comic)
+    public function store(Request $request)
     {
-        //
-    }
+        $data = $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'thumb' => 'required',
+            'price' => 'required',
+            'series' => 'required',
+            'sale_date' => 'required',
+            'type' => 'required',
+            'artists' => 'required',
+            'writers' => 'required',
+        ]);
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Comic $comic)
-    {
-        //
+        $data['artists'] = json_encode($data['artists']);
+        $data['writers'] = json_encode($data['writers']);
+
+        Comic::create($data);
+
+        return redirect()->route('comics.index');
     }
 }
