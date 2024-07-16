@@ -1,46 +1,43 @@
 body {
-    background-color: #fff;
+    background-color: #f5f5f5;
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
 .comic-details {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-top: 20px;
 }
 
 .comic-details img {
-    width: 40%;
+    max-width: 100%;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
 .comic-info {
-    padding-left: 20px;
-    width: 60%;
+    width: 100%;
+    text-align: center;
 }
 
 .comic-info h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: #333;
     margin-bottom: 20px;
     text-transform: uppercase;
 }
 
 .comic-info p {
-    font-size: 1.25rem;
+    font-size: 1rem;
     color: #666;
     line-height: 1.6;
+    margin-bottom: 20px;
 }
 
 .comic-info ul {
@@ -49,7 +46,7 @@ body {
 }
 
 .comic-info ul li {
-    font-size: 1.25rem;
+    font-size: 1rem;
     margin-bottom: 10px;
     color: #333;
 }
@@ -58,13 +55,8 @@ body {
     font-weight: bold;
 }
 
-.comic-info .btn-group {
+.comic-info .btn {
     margin-top: 20px;
-}
-
-.comic-info .btn-group a {
-    display: inline-block;
-    margin-right: 10px;
     background-color: #007bff;
     color: #fff;
     padding: 10px 20px;
@@ -73,17 +65,6 @@ body {
     transition: background-color 0.3s;
 }
 
-.comic-info .btn-group a.btn-outline {
-    background-color: #fff;
-    color: #007bff;
-    border: 1px solid #007bff;
-}
-
-.comic-info .btn-group a:hover {
+.comic-info .btn:hover {
     background-color: #0056b3;
-}
-
-.comic-info .btn-group a.btn-outline:hover {
-    background-color: #007bff;
-    color: #fff;
 }
